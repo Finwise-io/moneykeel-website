@@ -71,6 +71,36 @@
  .herofigure .hero-scroll{height:460px}
  .photo{padding:6px;min-height:0}
 }
+
+/* One-screen-at-a-time display. Composite source images have 4–6 phones in one image. */
+#screens .wrap{max-width:1280px}
+#screens .feature{grid-template-columns:minmax(0,.68fr) minmax(0,1.32fr);column-gap:28px;align-items:start}
+#screens .feature .copy{padding-top:18px}
+#screens .photo{display:block;min-width:0;min-height:0;background:#eaf3ec;padding:18px 12px 15px;border:1px solid #d6e8db;border-radius:22px}
+#screens .screenshot-gallery{width:100%;display:flex;flex-direction:column;align-items:center}
+#screens .screenshot-viewport{width:min(100%,520px);height:650px;overflow-x:hidden;overflow-y:auto;border-radius:16px;background:#fff;box-shadow:0 15px 40px #15392b25;scrollbar-color:#90b8a0 #e3ece5;scrollbar-width:thin;overscroll-behavior:contain;position:relative}
+#screens .screenshot-viewport img.gallery-image{max-width:none;max-height:none;height:auto;display:block;object-fit:fill;border:0;border-radius:0;box-shadow:none;transition:transform .22s ease-out;transform:translateX(0%);transform-origin:top left}
+#screens .gallery-controls{width:min(100%,520px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;margin:17px 0 0}
+#screens .gallery-controls button{font:inherit;font-weight:750;font-size:.86rem;color:#085041;background:#fff;border:1px solid #bfd7c7;border-radius:9px;cursor:pointer;padding:10px 14px;min-height:43px}
+#screens .gallery-controls button:hover{background:#d4ebdc}
+#screens .gallery-controls button:focus-visible{outline:3px solid #178f6b;outline-offset:2px}
+#screens .gallery-controls button:disabled{color:#81958a;background:#f2f5f3;cursor:not-allowed}
+#screens .gallery-position{font-variant-numeric:tabular-nums;font-size:.86rem;color:#345a48;font-weight:750}
+#screens .gallery-hint{color:#50695a;font-size:.81rem;font-weight:650}
+#screens .gallery-zoom{margin-left:auto}
+#screens .gallery-tip{margin:12px 0 0;text-align:center;font-size:.82rem;color:#536e60}
+.screenshot-dialog{max-width:none;max-height:none;width:min(94vw,750px);height:min(95vh,950px);background:#eef5ef;border:1px solid #9db9a9;border-radius:18px;padding:14px 15px 18px;box-shadow:0 24px 100px #0005}
+.screenshot-dialog::backdrop{background:#092719ba}
+.screenshot-dialog-header{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:1px 2px 12px;color:#085041;font-weight:800}
+.screenshot-dialog-header button{border:1px solid #adc4b6;background:white;border-radius:9px;padding:9px 15px;cursor:pointer;font:inherit;color:#085041}
+.screenshot-dialog-viewport{width:100%;height:calc(100% - 112px);background:#fff;overflow-y:auto;overflow-x:hidden;border-radius:12px;scrollbar-width:thin}
+.screenshot-dialog-viewport img{display:block;max-width:none;max-height:none;height:auto;transform-origin:top left}
+.screenshot-dialog-controls{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-top:13px;font-weight:750;color:#085041}
+.screenshot-dialog-controls button{background:#fff;border:1px solid #b6d2bf;border-radius:8px;padding:10px 14px;cursor:pointer;color:#085041;font:inherit;font-weight:730}
+.screenshot-dialog-controls button:disabled{opacity:.45;cursor:not-allowed}
+@media(max-width:850px){#screens .feature{grid-template-columns:1fr;gap:20px}#screens .feature .copy{padding-top:0}#screens .screenshot-viewport{height:min(78vh,660px)}}
+@media(max-width:600px){#screens .photo{padding:9px 7px}#screens .screenshot-viewport{height:min(72vh,620px);width:100%}#screens .gallery-controls{gap:5px}#screens .gallery-controls button{font-size:.8rem;padding:9px 8px}#screens .gallery-tip{font-size:.77rem}.screenshot-dialog{width:98vw;height:96vh;padding:10px}.screenshot-dialog-viewport{height:calc(100% - 112px)}}
+@media(prefers-reduced-motion:reduce){#screens .screenshot-viewport img.gallery-image{transition:none}}
 </style></head><body>
 <header class="header"><nav class="wrap nav" aria-label="Main navigation"><a class="brand" href="#top" aria-label="aMoneyKeel homepage"><img class="brandimg" src="assets/moneykeel-logo.webp" alt="aMoneyKeel — Your Finance Command Center" width="232" height="74"></a><button class="menu" id="menubtn" type="button" aria-expanded="false" aria-controls="navitems">Menu ☰</button><div class="navlinks" id="navitems"><a href="#what">What it does</a><a href="#screens">Explore the app</a><a href="#journey">Your journey</a><a href="#stories">Alex &amp; Maria</a><a href="features.html">All features</a><a href="#contact">Contact</a><a class="navcta" href="#beta">Private beta</a></div></nav></header>
 <main id="top"><section class="hero"><div class="wrap herogrid"><div><div class="eyebrow">Your Finance Command Center · iPhone private beta</div><h1>Your money journey.<br>Your financial view.</h1><p>aMoneyKeel meets you where you are. Building wealth? See your progress and savings goals. Already retired? See your retirement paycheck, test decisions, and explore how long your money could last.</p><div class="actions"><a href="#journey" class="btn primary">Find your journey →</a><a href="#stories" class="btn">See real-world examples</a></div><div class="mini">In private beta · Images are product design mockups with example data.</div></div><figure class="herofigure"><div class="hero-scroll" aria-label="Scrollable app screen preview"><img src="assets/net-worth.png" alt="Scrollable net-worth app mockup with category and account breakdown" loading="eager"></div></figure></div></section>
@@ -85,10 +115,37 @@
 <ul class="journey-list"><li><strong>What's my retirement paycheck?</strong><span>Review income from Social Security, pensions and savings withdrawals.</span></li><li><strong>Social Security: age 62, 67 or 70?</strong><span>Explore how different claim ages change monthly income and withdrawal needs.</span></li><li><strong>Could I afford to spend more?</strong><span>Test higher spending against a range of future market outcomes, not a guarantee.</span></li></ul></div>
 <div class="journey-view"><div class="eyebrow">Your planning lens</div><h4>Retired • a view designed around income</h4><div class="view-row"><div class="view-label">Monthly retirement income</div><div class="view-main">Social Security + pension + savings</div></div><div class="view-row"><div class="view-label">Claiming tradeoffs</div><div class="view-main">Compare 62, 67 and 70</div></div><div class="view-row"><div class="view-label">Spending room</div><div class="view-main">Explore outcomes if spending changes</div></div><div class="view-note">A planning scenario is an estimate, not a prediction. Retiree-focused surfaces may evolve during beta.</div></div></div>
 <p class="section-note" style="text-align:center">The app's onboarding adapts to your life stage and priorities. This website preview illustrates the experience; individual features may differ by beta build.</p></div></section>
-<section id="screens" class="soft"><div class="wrap"><div class="intro"><div class="eyebrow">Inside aMoneyKeel</div><h2>Built to make complex money simple.</h2><p>Scroll inside the screens to read more detail. These are illustrative product mockups; the beta interface may differ.</p></div>
-<div class="feature"><div class="copy"><div class="eyebrow">Net worth</div><h2>See the whole picture.</h2><p>Your accounts don't all live in one place. aMoneyKeel brings your assets and debts into a clear picture so you know where you stand.</p><ul><li>Review assets and liabilities by category.</li><li>Understand the accounts behind a total.</li><li>Track changes without confusing deposits with growth.</li></ul></div><div class="photo"><div class="screen-scroll" tabindex="0" aria-label="Scrollable financial app preview"><img src="assets/net-worth.png" alt="Repository design mockup for net worth"></div></div></div>
-<div class="feature"><div class="copy"><div class="eyebrow">Cash flow and investments</div><h2>Understand what changes your financial picture.</h2><p>Follow money coming in and going out, and track investment holdings and performance over time.</p><ul><li>Review spending against a plan.</li><li>See investment positions and returns.</li><li>Explore a detailed view when you need it.</li></ul></div><div class="photo"><div class="screen-scroll" tabindex="0" aria-label="Scrollable financial app preview"><img src="assets/app-overview.png" alt="Repository concept mockup illustrating financial screens"></div></div></div>
-<div class="feature"><div class="copy"><div class="eyebrow">Retirement</div><h2>Plan for the years ahead.</h2><p>Think through important questions before making decisions. Explore savings, retirement timing, income, and market scenarios—without pretending to know the future.</p><ul><li>See retirement planning estimates.</li><li>Explore how different assumptions affect results.</li><li>Understand where an estimate comes from.</li></ul><p class="mini">Retirement projections are estimates, not guarantees.</p></div><div class="photo"><div class="screen-scroll" tabindex="0" aria-label="Scrollable financial app preview"><img src="assets/retirement.png" alt="Repository concept mockup for retirement planning"></div></div></div></div></section>
+<section id="screens" class="soft"><div class="wrap"><div class="intro"><div class="eyebrow">Inside aMoneyKeel</div><h2>Built to make complex money simple.</h2><p>Use the arrows to view one phone screen at a time. Scroll inside a screen for details, or choose Enlarge for a closer look. These are illustrative product mockups; the beta interface may differ.</p></div>
+<div class="feature"><div class="copy"><div class="eyebrow">Net worth</div><h2>See the whole picture.</h2><p>Your accounts don't all live in one place. aMoneyKeel brings your assets and debts into a clear picture so you know where you stand.</p><ul><li>Review assets and liabilities by category.</li><li>Understand the accounts behind a total.</li><li>Track changes without confusing deposits with growth.</li></ul></div><div class="photo"><div class="screenshot-gallery" data-screen-count="1">
+  <div class="screenshot-viewport" tabindex="0" role="region" aria-label="Scrollable net worth app walkthrough screen">
+    <img class="gallery-image" src="assets/net-worth.png" alt="Net worth app walkthrough" style="width:100%" loading="lazy">
+  </div>
+  <div class="gallery-controls">
+    <span class="gallery-hint">Scroll down to read the full screen</span>
+    <button type="button" class="gallery-zoom" aria-label="Enlarge app screenshot">⛶ Enlarge</button>
+  </div>
+  <p class="gallery-tip">Scroll inside the screenshot to see the rest of the screen.</p>
+</div></div></div>
+<div class="feature"><div class="copy"><div class="eyebrow">Cash flow and investments</div><h2>Understand what changes your financial picture.</h2><p>Follow money coming in and going out, and track investment holdings and performance over time.</p><ul><li>Review spending against a plan.</li><li>See investment positions and returns.</li><li>Explore a detailed view when you need it.</li></ul></div><div class="photo"><div class="screenshot-gallery" data-screen-count="6">
+  <div class="screenshot-viewport" tabindex="0" role="region" aria-label="Scrollable app walkthrough across six financial screens screen">
+    <img class="gallery-image" src="assets/app-overview.png" alt="App walkthrough across six financial screens" style="width:600%" loading="lazy">
+  </div>
+  <div class="gallery-controls">
+    <button type="button" class="gallery-prev" aria-label="Previous app screen">← Previous</button><span class="gallery-position" aria-live="polite">1 of 6</span><button type="button" class="gallery-next" aria-label="Next app screen">Next →</button>
+    <button type="button" class="gallery-zoom" aria-label="Enlarge app screenshot">⛶ Enlarge</button>
+  </div>
+  <p class="gallery-tip">One phone at a time. Use the arrows to change screens; scroll inside the image for more.</p>
+</div></div></div>
+<div class="feature"><div class="copy"><div class="eyebrow">Retirement</div><h2>Plan for the years ahead.</h2><p>Think through important questions before making decisions. Explore savings, retirement timing, income, and market scenarios—without pretending to know the future.</p><ul><li>See retirement planning estimates.</li><li>Explore how different assumptions affect results.</li><li>Understand where an estimate comes from.</li></ul><p class="mini">Retirement projections are estimates, not guarantees.</p></div><div class="photo"><div class="screenshot-gallery" data-screen-count="4">
+  <div class="screenshot-viewport" tabindex="0" role="region" aria-label="Scrollable retirement planning across four screens screen">
+    <img class="gallery-image" src="assets/retirement.png" alt="Retirement planning across four screens" style="width:400%" loading="lazy">
+  </div>
+  <div class="gallery-controls">
+    <button type="button" class="gallery-prev" aria-label="Previous app screen">← Previous</button><span class="gallery-position" aria-live="polite">1 of 4</span><button type="button" class="gallery-next" aria-label="Next app screen">Next →</button>
+    <button type="button" class="gallery-zoom" aria-label="Enlarge app screenshot">⛶ Enlarge</button>
+  </div>
+  <p class="gallery-tip">One phone at a time. Use the arrows to change screens; scroll inside the image for more.</p>
+</div></div></div></div></section>
 
 <section id="stories"><div class="wrap"><div class="intro"><div class="eyebrow">See it in everyday life</div><h2>Two people. Two very different money questions.</h2><p>Follow these illustrative journeys to see how the same app can help people at different points in life. Alex and Maria are fictional examples.</p></div>
 <div class="story-grid">
@@ -117,6 +174,11 @@
 <section id="faq"><div class="wrap faq"><div class="eyebrow">Questions</div><h2>Good questions deserve clear answers.</h2><details><summary>Is aMoneyKeel available now?</summary><p>The iPhone app is in private TestFlight beta. You can request access by emailing beta@moneykeel.ai; invitations are not automatic.</p></details><details><summary>Can it automatically connect to my bank?</summary><p>Manual entry and some imports are part of the documented app. Automatic bank linking is not confirmed as available in this beta, so we don't promise it here.</p></details><details><summary>Does it give financial advice?</summary><p>It provides information and planning estimates, not personalized investment, tax, or legal advice.</p></details><details><summary>Are the numbers in these images real?</summary><p>No. The website images are product design mockups containing example data, not a real customer's financial information.</p></details></div></section></main>
 <footer class="footer"><div class="wrap"><div class="footrow"><div><img class="footerlogo" src="assets/moneykeel-logo.webp" alt="aMoneyKeel — Your Finance Command Center" width="230" height="73"></div><div><small>moneykeel.ai · iPhone private beta</small><div><a href="mailto:beta@moneykeel.ai">Beta</a> · <a href="mailto:jain@moneykeel.ai">Founder</a> · <a href="mailto:support@moneykeel.ai">Support</a> · <a href="mailto:hello@moneykeel.ai">Hello</a> · <a href="mailto:privacy@moneykeel.ai">Privacy inquiries</a></div></div></div><div class="legal">© 2026 aMoneyKeel. Product screens are illustrative. Financial projections are estimates, not guarantees. A public privacy policy and terms of service are still being prepared.</div></div></footer>
 
+<dialog id="screenshot-dialog" class="screenshot-dialog" aria-label="Enlarged app screenshot">
+  <div class="screenshot-dialog-header"><span id="screenshot-dialog-heading">App screen enlarged</span><button type="button" id="screenshot-dialog-close" aria-label="Close enlarged view">✕ Close</button></div>
+  <div class="screenshot-dialog-viewport" tabindex="0" role="region" aria-label="Scroll to see more of enlarged phone screen"><img id="screenshot-dialog-image" alt="Enlarged aMoneyKeel app screen" src="assets/net-worth.png"></div>
+  <div class="screenshot-dialog-controls"><button type="button" id="screenshot-dialog-prev">← Previous</button><span id="screenshot-dialog-count" aria-live="polite">Screen 1 of 1</span><button type="button" id="screenshot-dialog-next">Next →</button></div>
+</dialog>
 <div class="contact-modal" id="contact-modal" hidden role="presentation">
   <div class="contact-box" role="dialog" aria-modal="true" aria-labelledby="contact-title" aria-describedby="contact-description" tabindex="-1">
     <button type="button" class="contact-close" aria-label="Close contact options" id="contact-close">×</button>
@@ -197,5 +259,65 @@ copyBtn.addEventListener('click',async()=>{
   }catch(e){statusText.textContent='Copy unavailable. Select the email above to copy it manually.'}
 });
 document.querySelectorAll('[data-journey]').forEach(trigger=>{trigger.addEventListener('click',()=>{const chosen=trigger.dataset.journey;document.querySelectorAll('[data-journey]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.journey===chosen)));document.querySelectorAll('[data-journey-panel]').forEach(p=>{p.hidden=p.dataset.journeyPanel!==chosen});});});
+
+(function(){
+  const dialog=document.getElementById('screenshot-dialog');
+  const dialogImage=document.getElementById('screenshot-dialog-image');
+  const dialogViewport=dialog.querySelector('.screenshot-dialog-viewport');
+  const dialogHeading=document.getElementById('screenshot-dialog-heading');
+  const dialogCount=document.getElementById('screenshot-dialog-count');
+  const dialogPrev=document.getElementById('screenshot-dialog-prev');
+  const dialogNext=document.getElementById('screenshot-dialog-next');
+  let enlarged=null;
+  function shiftImage(image,index,count){
+    image.style.width=(count*100)+'%';
+    image.style.transform='translateX(-'+(100*index/count)+'%)';
+  }
+  function paintGallery(gallery){
+    const count=Number(gallery.dataset.screenCount);
+    const i=Number(gallery.dataset.current||0);
+    shiftImage(gallery.querySelector('img.gallery-image'),i,count);
+    const counter=gallery.querySelector('.gallery-position');
+    if(counter)counter.textContent=(i+1)+' of '+count;
+    const prev=gallery.querySelector('.gallery-prev');
+    const next=gallery.querySelector('.gallery-next');
+    if(prev)prev.disabled=i===0;
+    if(next)next.disabled=i===count-1;
+  }
+  document.querySelectorAll('.screenshot-gallery').forEach(gallery=>{
+    gallery.dataset.current='0';
+    paintGallery(gallery);
+    function go(step){
+      const count=Number(gallery.dataset.screenCount);
+      gallery.dataset.current=String(Math.min(count-1,Math.max(0,Number(gallery.dataset.current)+step)));
+      paintGallery(gallery);
+      gallery.querySelector('.screenshot-viewport').scrollTop=0;
+    }
+    gallery.querySelector('.gallery-prev')?.addEventListener('click',()=>go(-1));
+    gallery.querySelector('.gallery-next')?.addEventListener('click',()=>go(1));
+    gallery.querySelector('.gallery-zoom').addEventListener('click',()=>{
+      const img=gallery.querySelector('.gallery-image');
+      enlarged={image:img.src,alt:img.alt,index:Number(gallery.dataset.current),count:Number(gallery.dataset.screenCount)};
+      drawDialog();
+      dialog.showModal();
+      document.getElementById('screenshot-dialog-close').focus();
+    });
+  });
+  function drawDialog(){
+    if(!enlarged)return;
+    dialogImage.src=enlarged.image;
+    dialogImage.alt=enlarged.alt;
+    shiftImage(dialogImage,enlarged.index,enlarged.count);
+    dialogHeading.textContent='aMoneyKeel screen preview';
+    dialogCount.textContent=(enlarged.index+1)+' of '+enlarged.count;
+    dialogPrev.disabled=enlarged.index===0;
+    dialogNext.disabled=enlarged.index===enlarged.count-1;
+    dialogViewport.scrollTop=0;
+  }
+  dialogPrev.addEventListener('click',()=>{if(enlarged&&enlarged.index>0){enlarged.index--;drawDialog();}});
+  dialogNext.addEventListener('click',()=>{if(enlarged&&enlarged.index<enlarged.count-1){enlarged.index++;drawDialog();}});
+  document.getElementById('screenshot-dialog-close').addEventListener('click',()=>dialog.close());
+  dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close();});
+})();
 </script>
 </body></html>
